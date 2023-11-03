@@ -1,0 +1,279 @@
+[gd_scene load_steps=13 format=3 uid="uid://bagbhrpaffdch"]
+
+[ext_resource type="Script" path="res://screen_transition/scene_transition/scene_transition.gd" id="1_0rhg4"]
+[ext_resource type="Texture2D" uid="uid://mwq0gtu1mu2c" path="res://screen_transition/twirl_01.png" id="2_dotp6"]
+[ext_resource type="Texture2D" uid="uid://c0psbdi8gm514" path="res://screen_transition/star_06.png" id="3_iyuah"]
+
+[sub_resource type="Gradient" id="Gradient_phbvj"]
+offsets = PackedFloat32Array(0, 0.156997, 0.863481, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 0.427451, 1, 1, 1, 0.427451, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_62gko"]
+gradient = SubResource("Gradient_phbvj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xfcnm"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+spread = 30.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.05
+scale_max = 0.06
+color_ramp = SubResource("GradientTexture1D_62gko")
+
+[sub_resource type="Animation" id="Animation_lxkji"]
+resource_name = "APPEAR"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlRoot/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ControlRoot/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ControlRoot/ParticleCenter/Twirl:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 0.427451, 0), Color(1, 1, 0.427451, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ControlRoot/ParticleCenter/Twirl/TwirlParticles:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ControlRoot/ParticleCenter/Twirl/TwirlParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_qoyrb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlRoot/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ControlRoot/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ControlRoot/ParticleCenter/Twirl:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0.427451, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ControlRoot/ParticleCenter/Twirl/TwirlParticles:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ControlRoot/ParticleCenter/Twirl/TwirlParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_npb8r"]
+_data = {
+"APPEAR": SubResource("Animation_lxkji"),
+"RESET": SubResource("Animation_qoyrb")
+}
+
+[sub_resource type="Animation" id="Animation_0pexb"]
+resource_name = "ROTATE"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlRoot/ParticleCenter/Twirl:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_gh1qf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlRoot/ParticleCenter/Twirl:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsuvb"]
+_data = {
+"RESET": SubResource("Animation_gh1qf"),
+"ROTATE": SubResource("Animation_0pexb")
+}
+
+[node name="SceneTransition" type="CanvasLayer" node_paths=PackedStringArray("animator", "twirl_particles", "twirl")]
+layer = 10
+script = ExtResource("1_0rhg4")
+animator = NodePath("Animator")
+twirl_particles = NodePath("ControlRoot/ParticleCenter/Twirl/TwirlParticles")
+twirl = NodePath("ControlRoot/ParticleCenter/Twirl")
+
+[node name="ControlRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="ControlRoot"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0.109804, 1)
+
+[node name="ParticleCenter" type="Control" parent="ControlRoot"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 44.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Twirl" type="Sprite2D" parent="ControlRoot/ParticleCenter"]
+modulate = Color(1, 1, 0.427451, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_dotp6")
+
+[node name="TwirlParticles" type="GPUParticles2D" parent="ControlRoot/ParticleCenter/Twirl"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(10, -225)
+scale = Vector2(5, 5)
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_xfcnm")
+texture = ExtResource("3_iyuah")
+lifetime = 5.0
+
+[node name="Label" type="Label" parent="ControlRoot"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(99, 26)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -68.0
+offset_right = 51.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Chargement"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_npb8r")
+}
+
+[node name="AnimatorRotateTwirl" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jsuvb")
+}

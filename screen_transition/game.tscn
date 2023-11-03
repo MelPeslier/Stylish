@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6lv3gfntpfr4"]
+
+[ext_resource type="Script" path="res://screen_transition/game.gd" id="1_qv1ea"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_inrsx"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_8cu1d"]
+sky_material = SubResource("ProceduralSkyMaterial_inrsx")
+
+[sub_resource type="Environment" id="Environment_3cuvx"]
+background_mode = 2
+sky = SubResource("Sky_8cu1d")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0w7w3"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c8lvx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gyn5q"]
+size = Vector3(2, 4, 0.5)
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_qv1ea")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3cuvx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.613155, 0.789962, 0, -0.789962, 0.613155, 0, 10.3992, 11.5772)
+
+[node name="GameWorld" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GameWorld"]
+mesh = SubResource("PlaneMesh_0w7w3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="GameWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80924, -2.16179)
+mesh = SubResource("BoxMesh_c8lvx")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="GameWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44448, 1.80924, 0.0906935)
+mesh = SubResource("BoxMesh_c8lvx")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="GameWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.84167, 1.80924, 2.51743)
+mesh = SubResource("BoxMesh_c8lvx")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="GameWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0637445, 1.80924, 6.89701)
+mesh = SubResource("BoxMesh_gyn5q")
+
+[node name="Menu" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Menu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.556863, 0.556863, 1, 1)
+
+[node name="Button" type="Button" parent="Menu/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+
+[connection signal="button_up" from="Menu/Control/Button" to="." method="_on_button_button_up"]
